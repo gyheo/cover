@@ -21,7 +21,11 @@ submitButton.onclick = function () {
         alert('GOOD!');
         word.textContent = answer.value;
         answer.value = '';
+    } else if (answer.value[0] = ' '){
+        alert('No Space!');
+        answer.value = '';
     } else {
         alert('TRY AGAIN!');
+        answer.value = ''; // 오답 처리
     }
 }
