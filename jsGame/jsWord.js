@@ -21,11 +21,11 @@ submitButton.onclick = function () {
         alert('GOOD!');
         word.textContent = answer.value;
         answer.value = '';
-    } else if (answer.value[0] = ' '){
+    } else if (answer.value[0] == ' ') { // 공백 처리
         alert('No Space!');
         answer.value = '';
-    } else {
+    } else { // 오답 처리
         alert('TRY AGAIN!');
-        answer.value = ''; // 오답 처리
+        answer.value = '';
     }
 }
