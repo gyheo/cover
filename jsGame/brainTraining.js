@@ -1,6 +1,7 @@
 let number1 = Math.ceil(Math.random() * 9);
 let number2 = Math.ceil(Math.random() * 9);
 let answer = number1 * number2;
+let gameLife = 5; // 기회 추가
 
 let question = document.createElement('div');
 document.body.append(question);
@@ -36,8 +37,13 @@ form.addEventListener('submit', function(e) {
         question.textContent = number1 + ' X ' + number2 + ' = ?';
         answer = number1 * number2;
     } else {
-        result.textContent = '다시!'; // 오답일 경우에는 계속 그 문제 풀도록
-    }
+        result.textContent = `다시! 남은 기회 : ${gameLife}`; // 오답일 경우에는 계속 그 문제 풀도록
+        gameLife--;
+
+        if(gameLife == -1) {
+            document.body.innerHTML = 'GAME OVER';
+        }
+    }   
 
     userInput.value = ''; // 초기화
     userInput.focus();
