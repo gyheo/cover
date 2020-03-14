@@ -42,6 +42,7 @@ form.addEventListener('submit', function(e) {
 
         if(gameLife == -1) {
             document.body.innerHTML = 'GAME OVER';
+            document.body.style = 'font-size: 200px;'
         }
     }   
 
