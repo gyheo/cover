@@ -9,10 +9,11 @@ let numbers = [];
 
 for (let i = 0; i < 4; i++) {
     // let num = numberArr.pop();
-    let num = numberArr.shift();
-    numbers.unshift(num);
-    console.log(numbers);
+    let num = numberArr.splice(Math.floor(Math.random() * 9 - i), 1)[0];
+    // let num = numberArr.splice(Math.floor(Math.random() * numberArr.length), 1)[0];
+    numbers.push(num);
 }
+console.log(numbers);
 
 let form = document.createElement('form');
 document.body.append(form);
