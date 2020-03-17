@@ -4,10 +4,12 @@ const gameTitle = document.createElement('h1');
 gameTitle.textContent = '숫자 야구!'
 document.body.append(gameTitle);
 
+let numberArr;
 let numbers = [];
+
 let lifeCount = 5;
 
-function makeProblem(numbers) {
+function makeProblem() {
     let numberArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     for (let i = 0; i < 4; i++) {
         // let num = numberArr.pop();
@@ -18,7 +20,7 @@ function makeProblem(numbers) {
     console.log(numbers);
 }
 
-makeProblem(numbers);
+makeProblem();
 
 let form = document.createElement('form');
 document.body.append(form);
@@ -43,7 +45,7 @@ form.addEventListener('submit', function (e) {
         result.textContent = '홈런';
 
         numbers = [];
-        makeProblem(numbers);
+        makeProblem();
         lifeCount = 5;
     } else { // 틀렸을 경우
         lifeCount--;
@@ -52,7 +54,7 @@ form.addEventListener('submit', function (e) {
             result.textContent = `정답은 ${numbers.join('')} 이었습니다. 다시 시도해주세요!`;
             
             numbers = [];
-            makeProblem(numbers);
+            makeProblem();
             lifeCount = 5;
             return;
         }
