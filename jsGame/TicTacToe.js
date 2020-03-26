@@ -1,5 +1,6 @@
 let body = document.body;
 let table = document.createElement('table');
+let result = document.createElement('h1');
 let rows = [];
 let cols = [];
 let turn = 'X';
@@ -21,10 +22,54 @@ let nonsync = function(e) {
         // console.log('빈칸 YES');
         cols[rowIndex][colIndex].textContent = turn;
 
-        if(turn == 'X') {
-            turn = 'O';
-        } else {
+        let answer = false;
+    
+        if(cols[rowIndex][0].textContent === turn &&
+            cols[rowIndex][1].textContent === turn &&
+            cols[rowIndex][2].textContent === turn) {
+                answer = true; // rows
+        }
+        
+        if(cols[0][colIndex].textContent === turn &&
+            cols[1][colIndex].textContent === turn &&
+            cols[2][colIndex].textContent === turn) {
+                answer = true; // cols
+        }
+    
+        // 대각선
+        if(rowIndex - colIndex == 0){
+            if(cols[0][0].textContent === turn && 
+               cols[1][1].textContent === turn &&
+               cols[2][2].textContent === turn) {
+                answer = true;
+            }
+        }
+        if(Math.abs(rowIndex - colIndex) == 2){
+            if(cols[0][2].textContent === turn && 
+               cols[1][1].textContent === turn &&
+               cols[2][0].textContent === turn) {
+                answer = true;
+            }
+        }
+    
+        if(answer) {
+            result.textContent = `${turn}의 승리!`;
+            // alert(`${turn}의 승리!`);
+            
+            // initialize
             turn = 'X';
+            cols.forEach(function (row){
+                row.forEach(function (col){
+                    col.textContent = '';
+                });
+            });
+        }
+        else {
+            if(turn == 'X') {
+                turn = 'O';
+            } else {
+                turn = 'X';
+            }
         }
     }
 };
@@ -42,7 +87,9 @@ for(let i = 0; i < 3; i++){
     }
     table.appendChild(row);
 }
+
 console.log(rows);
 console.log(cols);
 
 body.appendChild(table);
+body.appendChild(result);
