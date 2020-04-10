@@ -27,35 +27,15 @@ function init() {
                     // 빈칸인 경우에만 값이 들어갈 수 있도록
                     tableArrays[i][j].textContent = turn;
 
-                    // 세로
-                    if(tableArrays[i][0].textContent == turn &&
-                       tableArrays[i][1].textContent == turn &&
-                       tableArrays[i][2].textContent == turn) {
+                    if((tableArrays[i][0].textContent == turn && tableArrays[i][1].textContent == turn && tableArrays[i][2].textContent == turn) || // 가로
+                       (tableArrays[0][j].textContent == turn && tableArrays[1][j].textContent == turn && tableArrays[2][j].textContent == turn) || // 세로
+                       (tableArrays[0][0].textContent == turn && tableArrays[1][1].textContent == turn && tableArrays[2][2].textContent == turn) || // X 대각선
+                       (tableArrays[0][2].textContent == turn &&tableArrays[1][1].textContent == turn && tableArrays[2][0].textContent == turn)
+                       ) {
                            finish = true;
                     }
-                    
-                    // 세로
-                    if(tableArrays[0][j].textContent == turn &&
-                       tableArrays[1][j].textContent == turn &&
-                       tableArrays[2][j].textContent == turn) {
-                           finish = true;
-                    }
-                    
-                    // 대각선
-                    if(tableArrays[0][0].textContent == turn &&
-                       tableArrays[1][1].textContent == turn &&
-                       tableArrays[2][2].textContent == turn) {
-                           finish = true;
-                    }
-
-                    if(tableArrays[0][2].textContent == turn &&
-                       tableArrays[1][1].textContent == turn &&
-                       tableArrays[2][0].textContent == turn) {
-                           finish = true;
-                     }
                     
                     if(finish) {
-                        alert(`${turn}의 승리!`);
                         for(let i = 0; i < tableRows.length; i++) {
                             for(let j = 0; j < tableArrays.length; j++) {
                                 tableArrays[i][j].textContent = '';
