@@ -49,6 +49,8 @@ const result = document.getElementById('result');
 function decorateBall(ballNumber, result) {
     let circle = document.createElement('div');
     circle.textContent = ballNumber;
+    circle.style.color = 'white';
+    circle.style.fontSize = '15px';
     circle.style.display = 'inline-block';
     circle.style.border = '1px solid black';
     circle.style.borderRadius = '10px';
@@ -56,6 +58,23 @@ function decorateBall(ballNumber, result) {
     circle.style.height = '20px';
     circle.style.textAlign = 'center';
     circle.style.marginRight = '10px';
+    
+    let backgroundColor;
+    
+    if(ballNumber <= 10)
+        backgroundColor = 'red';
+    else if(ballNumber <= 20)
+        backgroundColor = 'orange';
+    else if(ballNumber <= 30)
+        backgroundColor = 'yellow';
+    else if(ballNumber <= 40)
+        backgroundColor = 'blue';
+    else if(ballNumber <= 50)
+        backgroundColor = 'green';
+
+    circle.id = 'circle' + ballNumber;
+    circle.className = 'circle' + ballNumber;
+    circle.style.backgroundColor = backgroundColor;
     result.appendChild(circle);
 }
 
@@ -84,7 +103,8 @@ setTimeout(function timeInterval() {
 }, 6000);
 
 
-const luckys = document.getElementsByClassName('luckys')[0];
+// const luckys = document.getElementsByClassName('luckys')[0];
+const luckys = document.querySelector('.luckys'); // using querySelector
 let bonusCircle = document.createElement('div');
 
 setTimeout(function timeInterval() {
