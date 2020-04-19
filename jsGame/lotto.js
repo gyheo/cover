@@ -78,35 +78,22 @@ function decorateBall(ballNumber, result) {
     result.appendChild(circle);
 }
 
-setTimeout(function timeInterval() {
-    decorateBall(lotto[0], result);
-}, 1000);
+// 행운의 숫자 6자리 + bonus 숫자
+for(let i = 0; i < lotto.length + 1; i++) {
+    if(i == lotto.length) {
+        // const luckys = document.getElementsByClassName('luckys')[0];
+        const luckys = document.querySelector('.luckys'); // Using querySelector
+        let bonusCircle = document.createElement('div');
 
-setTimeout(function timeInterval() {
-    decorateBall(lotto[1], result);
-}, 2000);
+        // for 반복문 안의 setTimeout closure 문제 해결
+        setTimeout(function () {
+            decorateBall(bonus, luckys);
+        }, 1000 * i);
 
-setTimeout(function timeInterval() {
-    decorateBall(lotto[2], result);
-}, 3000);
+        break;
+    }
 
-setTimeout(function timeInterval() {
-    decorateBall(lotto[3], result);
-}, 4000);
-
-setTimeout(function timeInterval() {
-    decorateBall(lotto[4], result);
-}, 5000);
-
-setTimeout(function timeInterval() {
-    decorateBall(lotto[5], result);
-}, 6000);
-
-
-// const luckys = document.getElementsByClassName('luckys')[0];
-const luckys = document.querySelector('.luckys'); // using querySelector
-let bonusCircle = document.createElement('div');
-
-setTimeout(function timeInterval() {
-    decorateBall(bonus, luckys);
-}, 7000);
+    setTimeout(function() {
+        decorateBall(lotto[i], result);
+    }, 1000 * i);
+}
