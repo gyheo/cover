@@ -88,12 +88,12 @@ for(let i = 0; i < lotto.length + 1; i++) {
         // for 반복문 안의 setTimeout closure 문제 해결
         setTimeout(function () {
             decorateBall(bonus, luckys);
-        }, 1000 * i);
+        }, 1000 * (i + 1));
 
         break;
     }
 
     setTimeout(function() {
         decorateBall(lotto[i], result);
-    }, 1000 * i);
+    }, 1000 * (i + 1));
 }
