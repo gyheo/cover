@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+a:link {text-decoration: none; color: white;}
+a:visited {text-decoration: none; color:white;}
+
+header {
+  background-color: #3CB371;
+  text-align: center;
+  width: 100%;
+  height: 20%;
+  font-size: 25px;
+  padding: 50px;
+  color: white;
+}
+
+.running {
+  text-align: center;
+  height: 700px;
+  padding-top: 100px;
+}
+
+.total {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+
+.running-inform {
+  flex: 1;
+}
+
+progress {
+  background-color: rgb(38, 148, 106);
+  margin: 0;
+  padding: 0;
+}
+
+progress::-webkit-progress-bar {
+  background: #ffeeee;
+}
+
+
+footer {
+  background-color: #3CB371;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  height: 20%;
+  color: white;
+}
+
+li {
+  display: inline;
+}
+
+li a {
+  padding: 10px;
+}
+
+.progress {
+  text-align: center;
+}
